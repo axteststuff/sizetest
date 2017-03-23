@@ -2,15 +2,18 @@
 //
 
 #include <stdio.h>
+#include <stdint.h>
 #include <time.h>
 #include <sys/stat.h>
 
 int main(int argc, char* argv[])
 {
 
-	printf("sizeof(long int) = %d\n", sizeof(long int));
-	printf("sizeof(long long int) = %d\n", sizeof(long long int));
-	printf("sizeof(short int) = %d\n", sizeof(short int));
+	printf("sizeof(int) = %ld\n", sizeof(int));  // 8 on Linux 4 on Windows
+	printf("sizeof(int32_t) = %ld\n", sizeof(int32_t));  // 4 on Linux 4 on Windows
+	printf("sizeof(long int) = %ld\n", sizeof(long int));  // 8 on Linux 4 on Windows
+	printf("sizeof(long long int) = %ld\n", sizeof(long long int)); // 8 on Linux 8 on Windows
+	printf("sizeof(short int) = %ld\n", sizeof(short int)); // 2 on Linux 2 on Windows
 
 	return 0;
 }
