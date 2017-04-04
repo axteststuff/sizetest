@@ -5,6 +5,11 @@
 #include <stdint.h>
 #include <time.h>
 #include <sys/stat.h>
+#include <sys/types.h>
+#include <fcntl.h>
+#include <unistd.h>
+#include <sys/mman.h>
+
 
 int main(int argc, char* argv[])
 {
@@ -19,6 +24,17 @@ int main(int argc, char* argv[])
 	printf("oct is 0o%o\n", 07777);
 	printf("dec is %d\n", 07777);
 
+	struct stat st;
+	if (stat("./a.out", &st) == 0)
+	{
+		mode_t m = st.st_mode;
+		printf("hex is 0x%X\n", m & ~S_IFMT & 07777);
+		printf("oct is 0o%o\n", m & ~S_IFMT & 07777);
+		printf("dec is %d\n", m & ~S_IFMT & 07777);
+		printf("hex is 0x%lX\n", m & ~S_IFMT);
+		printf("oct is 0o%lo\n", m & ~S_IFMT);
+		printf("dec is %ld\n", m & ~S_IFMT);
+	}
 	return 0;
 }
 
