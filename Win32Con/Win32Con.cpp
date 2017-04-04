@@ -15,6 +15,9 @@ int main(int argc, char* argv[])
 	printf("sizeof(long long int) = %ld\n", sizeof(long long int)); // 8 on Linux 8 on Windows
 	printf("sizeof(int64_t) = %ld\n", sizeof(int64_t)); // 8 on Linux 8 on Windows
 	printf("sizeof(short int) = %ld\n", sizeof(short int)); // 2 on Linux 2 on Windows
+	printf("hex is 0x%X\n", 07777);
+	printf("oct is 0o%o\n", 07777);
+	printf("dec is %d\n", 07777);
 
 	return 0;
 }
